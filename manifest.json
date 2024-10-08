@@ -1,0 +1,20 @@
+{
+  "name": "Tab Manager",
+  "version": "1.0.0",
+  "description": "this is an extension to manage tabs, no more frustration of having too many tabs open",
+  "manifest_version": 3,
+  "author": "Abdellah Abnoune",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {},
+    "default_title": "Tab Manager"
+  },
+  "permissions": [
+    "tabs", "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {}
+
+}
