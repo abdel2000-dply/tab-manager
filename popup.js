@@ -64,14 +64,26 @@ function createTabElement(tab) {
 
   const tabTitle = document.createElement('h4');
   tabTitle.textContent = tab.title; // the style of the title is defined in popup.css
+  
+  const text = document.createElement('p');
+  text.textContent = tab.url; // the style of the text is defined in popup.css
 
   tabEl.addEventListener('click', () => {
     chrome.tabs.update(tab.id, { active: true });
   });
-  
 
-  const text = document.createElement('p');
-  text.textContent = tab.url; // the style of the text is defined in popup.css
+  tabEl.addEventListener('contextmenu', (event) => {
+    // right-clicking on a tab will close it
+    event.preventDefault();
+    chrome.tabs.remove(tab.id);
+    // After closing the tab, the tab will be removed from the popup
+    tabEl.remove();
+  });
+
+  tabEl.addEventListener('mouseover', () => {
+    // Preview the tab when hovering over it
+    
+  });
 
   tabEl.appendChild(icon);
   tabEl.appendChild(tabTitle);
