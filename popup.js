@@ -1,6 +1,6 @@
 const searchInput = document.getElementById('search-tabs');
 const searchBtn = document.getElementById('search-btn');
-const searchResults = document.getElementById('tabs');
+const searchResults = document.getElementById('tabs-container');
 
 const allTabs = document.getElementById('allTabs');
 
@@ -24,6 +24,7 @@ searchBtn.addEventListener('click', () => {
 
   chrome.tabs.query({}, (tabs) => {
     searchResults.innerHTML = '';
+    const ul = document.createElement('ul');
     tabs.forEach((tab) => {
       const title = tab.title.toLowerCase();
       const url = tab.url.toLowerCase();
@@ -33,9 +34,11 @@ searchBtn.addEventListener('click', () => {
         tabEl.addEventListener('click', () => {
           chrome.tabs.update(tab.id, { active: true });
         });
-        searchResults.appendChild(tabEl);
+        ul.appendChild(tabEl);
       }
     });
+
+    searchResults.appendChild(ul);
   });
 });
 
