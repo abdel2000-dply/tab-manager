@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     allTabs.innerHTML = '';
     tabs.forEach((tab) => {
       const title = tab.title.toLowerCase();
-      const url = tab.url.toLowerCase();
       const tabEl = document.createElement('li');
         tabEl.textContent = tab.title;
         tabEl.addEventListener('click', () => {
