@@ -34,6 +34,9 @@ searchBtn.addEventListener('click', () => {
         tabEl.addEventListener('click', () => {
           chrome.tabs.update(tab.id, { active: true });
         });
+        const text = document.createElement('p');
+        text.textContent = tab.url;
+        tabEl.appendChild(text);
         ul.appendChild(tabEl);
       }
     });
