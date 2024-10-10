@@ -13,6 +13,15 @@ searchBtn.addEventListener('click', () => {
   searchTabs();
 });
 
+searchInput.addEventListener('input', () => {
+  // Display all tabs when search input is empty
+  if (searchInput.value === '') {
+    renderAllTabs();
+  }
+
+  searchTabs();
+});
+
 searchInput.addEventListener('keyup', (event) => {
   // Display search results when Enter key is pressed
   if (event.key === 'Enter') {
@@ -80,10 +89,29 @@ function createTabElement(tab) {
     tabEl.remove();
   });
 
-  tabEl.addEventListener('mouseover', () => {
-    // Preview the tab when hovering over it
-    
-  });
+  // tabEl.addEventListener('mouseover', () => {
+  //   // Preview the tab when hovering over it
+  //   chrome.tabs.captureVisibleTab(tab.windowId, { format: 'jpeg', quality: 85 }, (dataUrl) => {
+  //     console.log(dataUrl);
+  //     const sidePreview = document.createElement('div');
+  //     sidePreview.style.backgroundImage = `url(${dataUrl})`;
+  //     sidePreview.classList.add('side-preview');
+  //     document.body.appendChild(sidePreview);
+  
+  //     const rect = tabEl.getBoundingClientRect();
+  //     sidePreview.style.top = `${rect.top}px`;
+  //     sidePreview.style.left = `${rect.right}px`;
+  //   });
+
+  // });
+
+  // tabEl.addEventListener('mouseout', () => {
+  //   // Remove the preview when not hovering
+  //   const sidePreview = document.querySelector('.side-preview');
+  //   if (sidePreview) {
+  //     sidePreview.remove();
+  //   }
+  // });
 
   tabEl.appendChild(icon);
   tabEl.appendChild(tabTitle);
