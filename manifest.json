@@ -10,7 +10,7 @@
     "default_title": "Tab Manager"
   },
   "permissions": [
-    "tabs", "storage"
+    "tabs", "storage", "activeTab"
   ],
   "background": {
     "service_worker": "background.js"
