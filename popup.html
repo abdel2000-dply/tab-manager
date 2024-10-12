@@ -8,20 +8,22 @@
   <title>Tab Manager</title>
 </head>
 <body>
+  <h1>Tab Manager</h1>
+  
   <div id="searchBar">
     <input type="text" id="search-tabs" placeholder="Search ...">
     <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
   </div>
 
-  <div id="tagInputContainer">
-    <input type="text" id="tag-input" placeholder="Enter a tag">
-    <button id="add-tag-btn">Add Tag</button>
-  </div>
-
-  <div id="tag-container">
-    <button class="tag">Group 1</button>
-    <button class="tag">Group 2</button>
-    <button class="tag">Group 3</button>
+  <div class="container-tags">
+    <div id="tag-container">
+      <button class="tag"></button>
+    </div>
+    <div id="tagInputContainer">
+      <input type="text" id="tag-input" placeholder="Add tag">
+      <button id="add-tag-btn"><i class="fa-solid fa-plus"></i></button>
+      <p id="no-tabs-selected-message" style="display: none; color: red;">No tabs selected to add the tag.</p>
+    </div>
   </div>
 
   <div id="tabs-container">
@@ -44,6 +46,6 @@
   <!-- <div id="group-container"></div> -->
 
   <!-- scripts -->
-  <script src="popup.js"></script>
+  <script type="module" src="popup.js"></script>
 </body>
 </html>
