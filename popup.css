@@ -32,10 +32,17 @@ body {
   background-color: #f9f9f9;
 }
 
+h1 {
+  color: #333;
+  font-size: 1.4rem;
+  margin: 5px 10px;
+  text-align: center;
+}
+
 #searchBar {
   display: flex;
   justify-content: center;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 
 #searchBar input {
@@ -44,15 +51,17 @@ body {
   border-radius: 15px;
   border: 1px solid #ccc;
   font-size: .8rem;
+  height: 32px;
 }
 
 #searchBar button {
-  padding: 10px;
+  padding: 6px;
   border-radius: 15px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
   margin-left: 5px;
   cursor: pointer;
+  height: 32px;
 }
 
 #searchBar button:hover {
@@ -63,7 +72,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-top: 20px;
 }
 
 .tabs {
@@ -90,7 +98,7 @@ body {
 #tabs-container ul li {
   list-style: none;
   margin: 0;
-  padding: 10px 20px;
+  padding: 6px 12px;
   cursor: pointer;
   background-color: #f9f9f9;
   border-radius: 15px;
@@ -130,8 +138,8 @@ body {
   text-overflow: ellipsis;
 }
 
-
 #tag-container {
+  flex: 2;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -147,6 +155,8 @@ body {
   cursor: pointer;
   font-size: .7rem;
   transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
 }
 
 .tag.active {
@@ -157,11 +167,110 @@ body {
   background-color: #e0e0e0;
 }
 
-/* .tag::before {
-  content: '\f00d'; /* Font Awesome Unicode for "times" icon */
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 900;
-  margin-right: 5px;
+/* Tags input styling */
+#tagInputContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#tag-input {
+  margin: 5px 0px;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}
+
+#add-tag-btn {
+  margin-left: -25px;
+  padding: 3px 8px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-} */
+  i {
+    font-size: .8rem;
+    fill: #1a1a1a;
+  }
+}
+
+#add-tag-btn:hover {
+  background-color: #bbb;
+}
+
+#no-tabs-selected-message {
+  position: absolute;
+  top: 70%;
+  left: 0;
+  width: 100%;
+  margin-top: 5px;
+  color: rgb(244, 180, 180);
+  font-size: 8px;
+}
+
+/* Checkbox styling in tabs */
+.tab-checkbox {
+  margin-right: 10px;
+  vertical-align: middle;
+  margin-bottom: 25px;
+}
+
+.tab-content {
+  display: flex;
+  align-items: center;
+  position: relative; /* Ensure the container is positioned relative */
+}
+
+.tab-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  margin-bottom: 25px;
+}
+
+.tab-details {
+  flex: 1;
+}
+
+
+.container-tags {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px;
+  padding: 0px 20px;
+}
+.tags {
+  position: absolute; /* Position the tags container absolutely */
+  bottom: 0; /* Position at the bottom */
+  left: 0; /* Position at the left */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.tab-content .tag {
+  font-size: .6rem;
+  padding: 2px 5px;
+}
+
+.tag-icon {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.tag.active {
+  background-color: #e0e0e0;
+}
+
+.tag:hover {
+  background-color: #e0e0e0;
+}
+
+/* tags block */
+
+
+
 
