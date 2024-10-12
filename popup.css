@@ -157,11 +157,11 @@ body {
   background-color: #e0e0e0;
 }
 
-.tag::before {
+/* .tag::before {
   content: '\f00d'; /* Font Awesome Unicode for "times" icon */
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   margin-right: 5px;
   cursor: pointer;
-}
+} */
 
