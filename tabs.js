@@ -7,14 +7,30 @@ export function renderAllTabs() {
   chrome.tabs.query({}, (tabs) => {
     try {
       const allTabs = document.getElementById('allTabs');
+      const pinnedTabs = document.getElementById('pinnedTabs');
       allTabs.innerHTML = '';
+      pinnedTabs.innerHTML = '';
+
       const ul = document.createElement('ul');
+      const pinnedUl = document.createElement('ul');
       loadTagsFromStorage((tabTags) => {
         tabs.forEach((tab) => {
           const tabEl = createTabElement(tab, tabTags[tab.id] || []);
-          ul.appendChild(tabEl);
+          if (tab.pinned) {
+            pinnedUl.appendChild(tabEl);
+          } else {
+            ul.appendChild(tabEl);
+          }
         });
         allTabs.appendChild(ul);
+        if (pinnedUl.children.length == 0) {
+            const noPinnedTabsMessage = document.createElement('p');
+            noPinnedTabsMessage.textContent = 'No pinned tabs';
+            noPinnedTabsMessage.style.textAlign = 'center';
+            pinnedTabs.appendChild(noPinnedTabsMessage);
+        } else {
+          pinnedTabs.appendChild(pinnedUl);
+        }
       });
     } catch (error) {
       return;
@@ -56,7 +72,7 @@ export function createTabElement(tab, tags) {
     <div class="tab-content">
       <input type="checkbox" class="tab-checkbox">
       <img src="${tab.favIconUrl}" alt="Favicon" class="tab-icon">
-      <div class="tags"">
+      <div class="tags">
         ${tags
           .map(
             (tag) =>
@@ -68,6 +84,9 @@ export function createTabElement(tab, tags) {
         <h4 class="tab-title">${tab.title}</h4>
         <p class="tab-url">${tab.url}</p>
       </div>
+      <button class="pin-btn">
+        ${tab.pinned ? '<i class="fa-solid fa-thumbtack-slash fa-rotate-90"></i>' : '<i class="fa-solid fa-thumbtack fa-rotate-90"></i>'}
+      </button>
     </div>
   `;
 
@@ -103,6 +122,11 @@ export function createTabElement(tab, tags) {
       const tagName = tagEl.textContent.trim();
       filterTabsByTag(tagName);
     });
+  });
+
+  // Add event listener for pin/unpin button
+  tabEl.querySelector('.pin-btn').addEventListener('click', () => {
+    togglePinTab(tab.id, tab.pinned);
   });
 
   return tabEl;
@@ -217,4 +241,8 @@ export function deleteTagFromTab(tabId, tagName) {
     tabTags[tabId] = updatedTags;
     chrome.storage.local.set({ tabTags }, renderTagButtons);
   });
+}
+
+export function togglePinTab(tabId, isPinned) {
+  chrome.tabs.update(tabId, { pinned: !isPinned }, renderAllTabs);
 }
