@@ -89,7 +89,7 @@ h1 {
 
 .tabs h3 {
   font-size: 1.1rem;
-  margin: 10px 0;
+  margin: 12px 0;
   padding-left: 16px;
 }
 
@@ -316,3 +316,8 @@ h3 i {
   margin: 5px 0;
 }
 
+#footer a {
+  color: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
