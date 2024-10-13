@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
   box-sizing: border-box;
   line-height: 1.5;
@@ -16,6 +18,7 @@ body {
   background-color: #f5f5f5;
   min-width: 350px;
   overflow-y: scroll;
+  margin: 0px 6px;
 }
 
 ::-webkit-scrollbar {
@@ -37,6 +40,8 @@ h1 {
   font-size: 1.4rem;
   margin: 5px 10px;
   text-align: center;
+  letter-spacing: 5px;
+  font-weight: 900;
 }
 
 #searchBar {
@@ -83,9 +88,14 @@ h1 {
 }
 
 .tabs h3 {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin: 10px 0;
-  padding-left: 10px;
+  padding-left: 16px;
+}
+
+h3 i {
+  font-size: 1rem;
+  margin-right: 10px;
 }
 
 #tabs-container ul {
@@ -143,7 +153,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin: 10px;
+  margin: 10px 0px;
   gap: 8px;
 }
 
@@ -167,6 +177,11 @@ h1 {
   background-color: #e0e0e0;
 }
 
+.tag i:hover {
+ scale: 1.1;
+ transition: scale 0.1s ease-in-out;
+}
+
 /* Tags input styling */
 #tagInputContainer {
   flex: 1;
@@ -179,7 +194,7 @@ h1 {
   margin: 5px 0px;
   padding: 3px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 15px;
   width: 100%;
 }
 
@@ -188,8 +203,9 @@ h1 {
   padding: 3px 8px;
   background-color: #ccc;
   border: none;
-  border-radius: 4px;
+  border-radius: 15px;
   cursor: pointer;
+  transition: scale 0.1s ease-in-out;
   i {
     font-size: .8rem;
     fill: #1a1a1a;
@@ -198,6 +214,7 @@ h1 {
 
 #add-tag-btn:hover {
   background-color: #bbb;
+  scale: 1.1;
 }
 
 #no-tabs-selected-message {
@@ -232,6 +249,7 @@ h1 {
 
 .tab-details {
   flex: 1;
+  max-width: 80%;
 }
 
 
@@ -269,8 +287,32 @@ h1 {
   background-color: #e0e0e0;
 }
 
-/* tags block */
+/* pin/unpin */
 
+.pin-btn {
+  position: absolute;
+  right: -8px;
+  top: 16%;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  transition: scale 0.1s ease-in-out;
+  width: 30px;
+  i {
+    font-size: .8rem;
+  }
+}
 
+.pin-btn:hover {
+  scale: 1.1;
+}
 
+/* footer */
+#footer p {
+  text-align: right;
+  font-size: .7rem;
+  color: #ccc;
+  margin: 5px 0;
+}
 
