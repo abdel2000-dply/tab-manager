@@ -59,8 +59,13 @@ h1 {
   height: 32px;
 }
 
+#searchBar input::placeholder {
+  padding-left: 6px;
+  font-size: .7rem;
+}
+
 #searchBar button {
-  padding: 6px;
+  padding: 6px 8px;
   border-radius: 15px;
   border: 1px solid #ccc;
   background-color: #f9f9f9;
@@ -196,6 +201,11 @@ h3 i {
   border: 1px solid #ccc;
   border-radius: 15px;
   width: 100%;
+}
+
+#tag-input::placeholder {
+  padding-left: 6px;
+  font-size: .7rem;
 }
 
 #add-tag-btn {
