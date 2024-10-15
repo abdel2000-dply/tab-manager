@@ -9,7 +9,7 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-  // Handle fetch events if needed
+  // --
 });
 
 // Voice recognition setup
@@ -24,7 +24,7 @@ if (!('webkitSpeechRecognition' in self)) {
   recognition.onresult = (event) => {
     const transcript = event.results[event.resultIndex][0].transcript.toLowerCase();
     console.log('You said: ', transcript);
-    handleVoiceCommand(transcript); // Call function to handle the spoken command
+    handleVoiceCommand(transcript);
   };
 
   recognition.onerror = (event) => {
@@ -109,5 +109,28 @@ function searchTabs(query) {
 }
 
 function addTagToSelectedTabs(tag) {
-  // Implement your logic to add a tag to selected tabs
+  chrome.tabs.query({ highlighted: true }, (tabs) => {
+    tabs.forEach((tab) => {
+      chrome.storage.local.get({ tags: {} }, (result) => {
+        const tags = result.tags;
+        if (!tags[tab.id]) {
+          tags[tab.id] = [];
+        }
+        if (!tags[tab.id].includes(tag)) {
+          tags[tab.id].push(tag);
+        }
+        chrome.storage.local.set({ tags: tags }, () => {
+          console.log(`Tag "${tag}" added to tab ${tab.id}`);
+        });
+      });
+    });
+  });
 }
+
+// Listen for messages from Welcome.js
+chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+  if (message.type === 'recognized-speech') {
+    console.log('Recognized speech received: ', message.transcript);
+    handleVoiceCommand(message.transcript);
+  }
+});
