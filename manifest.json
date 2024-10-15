@@ -15,6 +15,11 @@
   "background": {
     "service_worker": "background.js"
   },
-  "icons": {}
-
+  "icons": {},
+  "web_accessible_resources": [
+    {
+      "resources": ["welcome.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
