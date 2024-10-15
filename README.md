@@ -10,6 +10,7 @@ The **Tab Manager** Chrome extension helps you manage your browser tabs efficien
 - **Tag Tabs**: Add tags to your tabs for better organization.
 - **Pin/Unpin Tabs**: Easily pin or unpin tabs to keep important tabs accessible.
 - **Short cut Close Tabs**: hover over a specific tab and close it with a single right click.
+- **Voice Commands**: Control your tabs using voice commands for hands-free management.
 
 ## Installation
 1. Clone the repository to your local machine:
@@ -33,6 +34,17 @@ The **Tab Manager** Chrome extension helps you manage your browser tabs efficien
 4. Pin or unpin tabs using the pin icon next to each tab.
 
 5. Close tabs using the right click of your mouse
+
+6. **Voice Commands**:
+   - Click on the microphone button in the popup to start voice recognition.
+   - Speak commands like:
+     - "search [query]" to search for tabs.
+     - "add tag [tag]" to add a tag to selected tabs.
+     - "close tab [query]" to close tabs matching the query.
+     - "open [query]" to activate a tab matching the query.
+     - "pin tab [query]" to pin a tab matching the query.
+     - "unpin tab [query]" to unpin a tab matching the query.
+   - The recognized commands will be processed only if the popup is open !!!
 
 ## File Structure
 
