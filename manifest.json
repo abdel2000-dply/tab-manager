@@ -1,8 +1,11 @@
 {
   "name": "Tab Manager",
   "version": "1.0.0",
-  "description": "this is an extension to manage tabs, no more frustration of having too many tabs open",
+  "description": "This is an extension to manage tabs, no more frustration of having too many tabs open",
   "manifest_version": 3,
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
   "author": "Abdellah Abnoune",
   "action": {
     "default_popup": "popup.html",
@@ -10,11 +13,18 @@
     "default_title": "Tab Manager"
   },
   "permissions": [
-    "tabs", "storage", "activeTab"
+    "tabs",
+    "storage",
+    "activeTab"
   ],
   "background": {
     "service_worker": "background.js"
   },
-  "icons": {}
-
+  "icons": {},
+  "web_accessible_resources": [
+    {
+      "resources": ["request-microphone.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }
