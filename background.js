@@ -19,7 +19,7 @@ if (!('webkitSpeechRecognition' in self)) {
   const recognition = new self.webkitSpeechRecognition();
   recognition.continuous = true;
   recognition.interimResults = false;
-  recognition.lang = 'en-US';
+  recognition.lang = 'en-US'; // English
 
   recognition.onresult = (event) => {
     const transcript = event.results[event.resultIndex][0].transcript.toLowerCase();
