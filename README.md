@@ -4,6 +4,8 @@
 
 The **Tab Manager** Chrome extension helps you manage your browser tabs efficiently. It allows you to search, tag, pin, and unpin tabs, making it easier to organize and navigate through your open tabs.
 
+ - Recently Added **Voice Commands**
+
 ## Features
 
 - **Search Tabs**: Quickly search through your open tabs using the search bar.
